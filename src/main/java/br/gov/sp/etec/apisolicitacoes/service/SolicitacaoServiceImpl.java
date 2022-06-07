@@ -1,5 +1,7 @@
 package br.gov.sp.etec.apisolicitacoes.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,11 @@ public class SolicitacaoServiceImpl implements SolicitacaoService{
 	public SolicitacaoDto adicionar(SolicitacaoDto dto) {
 		// TODO Auto-generated method stub
 		return repository.save(dto);
+	}
+
+	@Override
+	public List<SolicitacaoDto> consultar() {		
+		return repository.findAll();
 	}
 	
 	

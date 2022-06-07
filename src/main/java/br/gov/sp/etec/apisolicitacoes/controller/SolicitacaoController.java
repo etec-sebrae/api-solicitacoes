@@ -1,7 +1,10 @@
 package br.gov.sp.etec.apisolicitacoes.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,5 +25,13 @@ public class SolicitacaoController {
 		
 		return ResponseEntity.ok(retorno);
 	}
+	
+	@GetMapping("consultar")
+	public ResponseEntity<List<SolicitacaoDto>> consultarSolicitacao(){
+		List<SolicitacaoDto> solicitacoes = service.consultar();
+		return ResponseEntity.ok(solicitacoes);		
+	}
+	
+	
 
 }
